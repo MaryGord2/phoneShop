@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${title}"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<main>
+    <center>
+        <h1>Главная страница</h1>
+        <img class="mb-4" src="mobileMain.svg" alt="" width="200" height="200"><br>
+        <h3><a class="p-2 text-dark" href="/employees-main">Сотрудники</a><br></h3></center>
+
+
+</main>
+<div th:insert="blocks/footer::footer"></div>
+
+</body>
+</html>

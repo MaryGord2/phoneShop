@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Товары в продаже</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+	<center><h1>Товары в продаже</h1></center>
+
+
+
+	<div class="alert alert-info mt-2">
+		<p>Смартфон 32/128</p>
+		<p>APPLE</p>
+		<p>12 S</p>
+
+		Цена продажи <h5>79 599 р.</h5>
+		Цена закупки <h5> 59 300 р.</h5>
+		<p>Количество доступно: 12</p>
+
+	</div>
+
+	<div class="alert alert-info mt-2">
+		<p>Смартфон 4/32</p>
+		<p>SAMSUNG</p>
+		<p>A51</p>
+
+		Цена продажи <h5>17 599 р.</h5>
+		Цена закупки <h5> 13 300 р.</h5>
+		<p>Количество доступно: 8</p>
+
+	</div>
+	<div class="alert alert-info mt-2">
+		<p>Наушники</p>
+		<p>SAMSUNG</p>
+		<p>pi65</p>
+
+		Цена продажи <h5>3 695 р.</h5>
+		Цена закупки <h5> 2 896 р.</h5>
+		<p>Количество доступно: 8</p>
+
+	</div>
+
+	<a th:href="'/'" class="btn btn-primary my-2">Назад</a>
+	<a th:href="'/'" class="btn btn-warning">Печать</a>
+	</form>
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Клиенты сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+    <center><h1>Форм-факторы</h1></center>
+
+    <div align="right"><a href="/formFactor/add" class="btn btn-primary my-2">Добавить форм-фактор</a><br></div>
+    <input type="text" name="nameSearch" placeholder="Начните вводить" class="form-control"><br>
+    <div th:each="el : ${formFactors}" class="alert alert-info mt-2">
+        <h3 th:text="${el.nameFormFactor}"/>
+
+        <form th:action="'/formFactor/' +  ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+            <a th:href="'/formFactor/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a>
+        </form>
+    </div>
+    <a th:href="'/mdm-main'" class="btn btn-primary my-2">Назад</a>
+    </form>
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

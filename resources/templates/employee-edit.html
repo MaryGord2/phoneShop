@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Редактирование сотрудника</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+	<h1>Редактирование сотрудника</h1>
+	 <div th:each="el : ${employee}">
+	<form method="post">
+		<input type="text" th:value="${el.name}" name="name" placeholder="Введите имя сотрудника" class="form-control"><br>
+		<input type="text" th:value="${el.firstname}" name="firstname" placeholder="Введите фамилию сотрудника" class="form-control"><br>
+		<input type="text" th:value="${el.lastname}" name="lastname" placeholder="Введите отчество сотрудника" class="form-control"><br>
+		<input type="text" th:value="${el.numberOfPhone}" name="numberOfPhone" placeholder="Введите номер телефона сотрудника" class="form-control"><br>
+		<input type="text" th:value="${el.password}" name="password" placeholder="Введите пароль сотрудника" class="form-control"><br>
+		<input type="text" th:value="${el.login}" name="login" placeholder="Введите логин сотрудника" class="form-control"><br>
+		<input type="text" th:value="${el.address}" name="address" placeholder="Введите адрес сотрудника" class="form-control"><br>
+
+		<select th:name="dolznosti" class="form-control" id="dolznosti" >
+			<option th:each="el : ${dolznosts}" class="form-control" name="dolznostsId" th:value="${el.dolznostId}" th:text="${el.nameDolznost}" th:selected="${el.dolznostId==dolznost.dolznostId}">
+
+			</option>
+		</select><br>
+
+<!--		<input type="text" th:value="${el.dolznnostEmployee}" name="dolznnostEmployee" placeholder="Введите адрес клиента" class="form-control"><br>-->
+		<button type="submit" class="btn btn-success">Обновить сотрудника</button>
+	</form>
+	</div>
+	
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

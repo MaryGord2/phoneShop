@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Клиенты сайта</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+	<h1>Клиенты сайта</h1>
+
+	<div align="right"><a href="/client/add" class="btn btn-primary my-2">Добавить клиента</a><br></div>
+	<input type="text" name="nameSearch" placeholder="Начните вводить фамилию" class="form-control"><br>
+	 <div th:each="el : ${clients}" class="alert alert-info mt-2">
+		<h3 th:text="${el.name}"/>
+		<h3 th:text="${el.firstname}"/>
+		<h3 th:text="${el.lastname}"/>
+		<p th:text="${el.numberOfPhone}"/>
+		 <div><a th:href="'/client/' + ${el.id}" class="btn btn-warning">Детальнее</a></div>
+
+	</div>
+	<a th:href="'/'" class="btn btn-primary my-2">Назад</a>
+	</form>
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Редактирование форм-фактора</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+	<h1>Редактирование форм-фактора</h1>
+	 <div th:each="el : ${formFactor}">
+	<form method="post">
+		<input type="text" th:value="${el.nameFormFactor}" name="name" placeholder="Введите наименование форм-фактора" class="form-control"><br>
+
+		<button type="submit" class="btn btn-success">Обновить наименование форм-фактора</button>
+	</form>
+	</div>
+	
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

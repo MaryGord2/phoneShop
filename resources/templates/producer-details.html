@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Производители</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+	<center><h1>Производители</h1></center>
+
+	<div align="right"><a href="/producer/add" class="btn btn-primary my-2">Добавить производителя</a><br></div>
+	<input type="text" name="nameSearch" placeholder="Начните вводить" class="form-control"><br>
+	 <div th:each="el : ${producer}" class="alert alert-info mt-2">
+		 <h3 th:text="${el.nameProducer}"/>
+
+		Страна промзводителя: <p th:text="${countryName}"/>
+		 <div>
+
+		<form th:action="'/producer/' +  ${el.id} + '/remove'" method="post">
+		<button class="btn btn-warning" type="submit">Удалить</button>
+			<a th:href="'/producer/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a>
+		</form>
+		 </div>
+
+	</div>
+	</form>
+	<a th:href="'/producer-main'" class="btn btn-primary my-2">Назад</a>
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

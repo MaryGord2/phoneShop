@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Сотрудники сайта</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+	<center><h1>Сотрудники сайта</h1></center>
+
+	<div align="right"><a href="/client/add" class="btn btn-primary my-2">Добавить сотрудника</a><br></div>
+	 
+	 <div th:each="el : ${employee}" class="alert alert-info mt-2">
+		 <h3 th:text="${el.firstname}"/>
+		 <h3 th:text="${el.name}"/>
+		<h3 th:text="${el.lastname}"/>
+		Номер телефона: <p th:text="${el.numberOfPhone}"/>
+		Логин: <p th:text="${el.login}"/>
+		Пароль: <p th:text="${el.password}"/>
+		Адрес проживания: <p th:text="${el.address}"/>
+		Должность: <p th:text="${dolznost}"/>
+		 <div>
+
+		<form th:action="'/employee/' +  ${el.id} + '/remove'" method="post">
+		<button class="btn btn-warning" type="submit">Удалить</button>
+			<a th:href="'/employee/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a>
+		</form>
+		 </div>
+
+	</div>
+	</form>
+	<a th:href="'/employees-main'" class="btn btn-primary my-2">Назад</a>
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

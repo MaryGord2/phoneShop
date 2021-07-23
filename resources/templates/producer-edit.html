@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Редактирование производителя</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+	<h1>Редактирование производителя</h1>
+	 <div th:each="el : ${producer}">
+	<form method="post">
+		<input type="text" th:value="${el.nameProducer}" name="nameProducer" placeholder="Введите наименование производителя" class="form-control"><br>
+
+		<select th:name="countries" class="form-control" id="countries" >
+			<option th:each="el : ${countries}" class="form-control" name="countryId" th:value="${el.countryId}" th:text="${el.countryName}" th:selected="${el.countryId==country.countryId}">
+
+			</option>
+		</select><br>
+		<button type="submit" class="btn btn-success">Обновить производителя</button>
+	</form>
+	</div>
+	
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

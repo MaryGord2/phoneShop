@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+    <center><h1>Сотрудники</h1></center>
+    <div align="right"><a href="/employee/add" class="btn btn-primary my-2">Добавить сотрудника</a><br></div>
+    <input type="text" name="nameSearch" placeholder="Начните вводить" class="form-control"><br>
+    <div th:each="el : ${employees}" class="alert alert-info mt-2">
+        <h3 th:text="${el.firstname}"></h3>
+        <h3 th:text="${el.name}"></h3>
+        <h3 th:text="${el.lastname}"></h3>
+        <p th:text="${el.numberOfPhone}"></p>
+        <a th:href="'/employee/' + ${el.employeeId}" class="btn btn-warning">Детальнее</a>
+    </div>
+    <a th:href="'/'" class="btn btn-primary my-2">Назад</a>
+</div>
+<div th:insert="blocks/footer::footer"></div>
+
+</body>
+</html>

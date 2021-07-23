@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Редактирование операционной системы</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+	<h1>Редактирование операционной системы</h1>
+	 <div th:each="el : ${os}">
+	<form method="post">
+		<input type="text" th:value="${el.nameOs}" name="name" placeholder="Введите наименование операционной системы" class="form-control"><br>
+
+		<button type="submit" class="btn btn-success">Обновить наименование операционной системы</button>
+	</form>
+	</div>
+	
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Клиенты сайта</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+	<h1>Добавление клиента</h1>
+	<form action="/client/add" method="post">
+		<input type="text" name="name" placeholder="Введите имя клиента" class="form-control"><br>
+		<input type="text" name="firstname" placeholder="Введите фамилию клиента" class="form-control"><br>
+		<input type="text" name="lastname" placeholder="Введите отчество клиента" class="form-control"><br>
+		<input type="text" name="numberOfPhone" placeholder="Введите номер телефона клиента" class="form-control"><br>
+		<input type="text" name="pasport" placeholder="Введите паспорт клиента" class="form-control"><br>
+		<input type="text" name="address" placeholder="Введите адрес клиента" class="form-control"><br>
+		<button type="submit" class="btn btn-success">Добавить клиента</button>
+	</form>
+	
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>
